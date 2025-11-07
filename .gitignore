@@ -1,0 +1,10 @@
+node_modules
+
+# Frontend build artifacts
+apps/frontend/.next/
+apps/frontend/.turbo/
+apps/frontend/node_modules/
+
+# OS generated files
+.DS_Store
+apps/frontend/.DS_Store
