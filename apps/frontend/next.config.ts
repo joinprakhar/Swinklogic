@@ -1,10 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  images: {
-    domains: ["i.ibb.co"],
-  },
+  serverExternalPackages: ['puppeteer-core', 'puppeteer', '@sparticuz/chromium'],
 };
 
 export default nextConfig;

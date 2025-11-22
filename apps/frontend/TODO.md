@@ -1,0 +1,5 @@
+- [x] Update src/lib/scrapers/genericScraper.ts to use dynamic imports for Puppeteer based on environment
+  - [x] Remove static imports of puppeteer and chromium
+  - [x] Add environment check (isVercel) inside scrapeFromConfig function
+  - [x] Dynamically import puppeteer-core and @sparticuz/chromium for Vercel, puppeteer for local
+  - [x] Adjust browser launch options accordingly
