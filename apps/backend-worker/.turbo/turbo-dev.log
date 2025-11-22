@@ -3,10 +3,31 @@
 > backend-worker@1.0.0 dev /Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/apps/backend-worker
 > ts-node --project tsconfig.json src/worker.ts
 
-[dotenv@17.2.3] injecting env (1) from .env [2m-- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops[0m
+[dotenv@17.2.3] injecting env (1) from .env [2m-- tip: 📡 add observability to secrets: https://dotenvx.com/ops[0m
 IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
 IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
-🚀 Worker started — listening on queue 'scrape-jobs' (Redis: redis://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.c90.us-east-1-3.ec2.cloud.redislabs.com:10867)
+🚀 Worker started — listening on queue 'scrape-queue' (Redis: redis://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.c90.us-east-1-3.ec2.cloud.redislabs.com:10867)
+✅ Processing job: { id: [32m'2'[39m, name: [32m'test-scrape'[39m, data: { url: [32m'https://example.com'[39m } }
+Error processing job: TypeError: Cannot read properties of undefined (reading 'user')
+    at Worker.bullmq_1.Worker.connection.connection [as processFn] [90m(/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/apps/backend-worker/[39msrc/worker.ts:21:60[90m)[39m
+    at Worker.callProcessJob (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:378:17)
+    at /Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:907:37
+    at trace (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/utils/index.ts:344:12)
+    at Worker.trace (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/queue-base.ts:204:17)
+    at Worker.processJob (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:864:17)
+    at Worker.mainLoop (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:559:16)
+[90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Worker.run (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:470:7)
+❌ Job failed: 2 TypeError: Cannot read properties of undefined (reading 'user')
+    at Worker.bullmq_1.Worker.connection.connection [as processFn] [90m(/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/apps/backend-worker/[39msrc/worker.ts:21:60[90m)[39m
+    at Worker.callProcessJob (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:378:17)
+    at /Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:907:37
+    at trace (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/utils/index.ts:344:12)
+    at Worker.trace (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/queue-base.ts:204:17)
+    at Worker.processJob (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:864:17)
+    at Worker.mainLoop (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:559:16)
+[90m    at processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Worker.run (/Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/node_modules/[4m.pnpm[24m/bullmq@5.63.0/node_modules/[4mbullmq[24m/src/classes/worker.ts:470:7)
 ✅ Processing job: {
   id: [32m'3'[39m,
   name: [32m'test-scrape'[39m,
@@ -15,7 +36,7 @@ IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
 Scraping URL: https://example.com for user: dev-test
 Scraping completed: {
   url: [32m'https://example.com'[39m,
-  scrapedAt: [32m'2025-11-22T06:56:47.987Z'[39m,
+  scrapedAt: [32m'2025-11-22T09:04:58.832Z'[39m,
   data: [32m'Simulated scrape data'[39m
 }
 ✅ Job completed: 3

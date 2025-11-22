@@ -8,5 +8,5 @@
 [33m[nodemon] watching path(s): *.*[39m
 [33m[nodemon] watching extensions: ts,json[39m
 [32m[nodemon] starting `ts-node src/index.ts`[39m
-[dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops[0m
+[dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit[0m
 🚀 API running on port 4000
