@@ -1,6 +1,7 @@
 import IORedis from "ioredis";
 import { Worker } from "bullmq";
 import { REDIS_URL, QUEUE_NAME } from "./config";
+import { doScrape } from "./scraper";
 
 async function main() {
   const connection = new IORedis(REDIS_URL, { maxRetriesPerRequest: null });
@@ -18,17 +19,19 @@ async function main() {
       try {
         // Implement actual scraping logic
         const { url, meta } = job.data;
-        console.log(`Scraping URL: ${url} for user: ${meta.user}`);
+        const data =  await doScrape(job)
+        // const { url, meta } = job.data;
+        // console.log(`Scraping URL: ${url} for user: ${meta.user}`);
 
-        // Import scraper logic (assuming it's in a separate file)
-        // For now, simulate scraping
-        const scrapeResult = { url, scrapedAt: new Date().toISOString(), data: "Simulated scrape data" };
+        // // Import scraper logic (assuming it's in a separate file)
+        // // For now, simulate scraping
+        // const scrapeResult = { url, scrapedAt: new Date().toISOString(), data: "Simulated scrape data" };
 
-        console.log("Scraping completed:", scrapeResult);
+        console.log("Scraping completed:", data?.url);
 
-        // Here you can add logic to save results to database, send notifications, etc.
+        // // Here you can add logic to save results to database, send notifications, etc.
 
-        return { success: true, data: scrapeResult };
+        // return { success: true, data: scrapeResult };
       } catch (error) {
         console.error("Error processing job:", error);
         throw error;
