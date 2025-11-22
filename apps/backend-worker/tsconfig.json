@@ -22,7 +22,8 @@
     // "moduleResolution": "node",
     "outDir": "dist",
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": false
   },
   "include": ["src"]
 }

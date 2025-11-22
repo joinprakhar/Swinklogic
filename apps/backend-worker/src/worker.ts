@@ -1,14 +1,6 @@
 import IORedis from "ioredis";
 import { Worker } from "bullmq";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-console.log("",process.env.REDIS_URL)
-
-
-const REDIS_URL = process.env.REDIS_URL || "" ;
-const QUEUE_NAME = "scrape-jobs";
+import { REDIS_URL, QUEUE_NAME } from "./config";
 
 async function main() {
   const connection = new IORedis(REDIS_URL, { maxRetriesPerRequest: null });
@@ -17,15 +9,30 @@ async function main() {
   const worker = new Worker(
     QUEUE_NAME,
     async (job) => {
-      // NOTE: do not launch puppeteer here yet. Keep it minimal.
       console.log("✅ Processing job:", {
         id: job.id,
         name: job.name,
         data: job.data,
       });
 
-      // simulate some work
-      return { ok: true };
+      try {
+        // Implement actual scraping logic
+        const { url, meta } = job.data;
+        console.log(`Scraping URL: ${url} for user: ${meta.user}`);
+
+        // Import scraper logic (assuming it's in a separate file)
+        // For now, simulate scraping
+        const scrapeResult = { url, scrapedAt: new Date().toISOString(), data: "Simulated scrape data" };
+
+        console.log("Scraping completed:", scrapeResult);
+
+        // Here you can add logic to save results to database, send notifications, etc.
+
+        return { success: true, data: scrapeResult };
+      } catch (error) {
+        console.error("Error processing job:", error);
+        throw error;
+      }
     },
     { connection }
   );

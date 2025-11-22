@@ -1,11 +1,6 @@
 import IORedis from "ioredis";
 import { Queue } from "bullmq";
-
-
-const REDIS_URL =
-  process.env.REDIS_URL ||
-  "sredis://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.c90.us-east-1-3.ec2.cloud.redislabs.com:10867";
-const QUEUE_NAME = "scrape-jobs";
+import { REDIS_URL, QUEUE_NAME } from "./config";
 
 // rediss://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.region.cloud.redislabs.com:10867
 
