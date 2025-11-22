@@ -1,13 +1,10 @@
 
 
 > backend-worker@1.0.0 dev /Users/prakharpandey/Documents/Projects/PersonalProject/Swinklogic/apps/backend-worker
-> nodemon src/index.ts
+> ts-node --project tsconfig.json src/worker.ts
 
-[33m[nodemon] 3.1.10[39m
-[33m[nodemon] to restart at any time, enter `rs`[39m
-[33m[nodemon] watching path(s): *.*[39m
-[33m[nodemon] watching extensions: ts,json[39m
-[32m[nodemon] starting `ts-node src/index.ts`[39m
-[dotenv@17.2.3] injecting env (0) from .env [2m-- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild[0m
-👷 Worker started and connected to Redis.
-[32m[nodemon] clean exit - waiting for changes before restart[39m
+[dotenv@17.2.3] injecting env (1) from .env [2m-- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }[0m
+ redis://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.c90.us-east-1-3.ec2.cloud.redislabs.com:10867
+IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
+IMPORTANT! Eviction policy is volatile-lru. It should be "noeviction"
+🚀 Worker started — listening on queue 'scrape-jobs' (Redis: redis://default:xhF58bE5ejPCwaxJr47cKm2J1iE4QlvB@redis-10867.c90.us-east-1-3.ec2.cloud.redislabs.com:10867)
