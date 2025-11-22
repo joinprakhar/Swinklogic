@@ -1,11 +1,13 @@
-import React from 'react'
+import Hero from '@/components/Hero'
+import Navbar from '../../components/Navbar'
 
-const MainHomePage = () => {
+export default function Home() {
   return (
-    <div>
-      This is the Frontend Home Page
-    </div>
+    <>
+      <Navbar />
+      <main className="max-w-7xl mx-auto px-6 lg:px-8">
+        <Hero />
+      </main>
+    </>
   )
 }
-
-export default MainHomePage

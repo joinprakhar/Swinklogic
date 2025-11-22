@@ -13,8 +13,8 @@ export default function LandingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="bg-gradient-to-b from-[#101212] to-[#08201D] min-h-screen flex flex-col">
-      <main className="pt-16 lg:pt-20 flex-1">
+    <div className="">
+      <main className="">
         <LandingPageHeader />
         {children}
       </main>
